@@ -1,5 +1,4 @@
 const express = require('express')
-const { appendFile } = require('fs')
 const path = require('path')
 const app = express()
 
@@ -7,7 +6,7 @@ app.use(express.json())
 
 const Rollbar = require('rollbar')
 const rollbar = new Rollbar({
-    accessToken: '',
+    accessToken: 'd399382f74b04599a2ec800021f51192',
     captureUncaught: true,
     captureUnhandledRejections: true
 })
@@ -16,7 +15,7 @@ app.use(express.static("client"))
 
 app.get('/', (req,res) => {
     res.sendFile(path.join(__dirname, './client/index.html'))
-    rollbar.info('')
+    rollbar.info('Success')
 })
 
 const port = process.env.PORT || 6969
